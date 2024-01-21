@@ -15,11 +15,11 @@ const Hero = () => {
           height={50}
           className="absolute left-[-5px] top-[-30px] w-10 lg:w-[50px]"
         />
-        <h1 className="bold-52 lg:bold-88">Acampamento em Alagoas</h1>
+        <h1 className="bold-52 lg:bold-88">área de acampamento Putuk Truno</h1>
         <p className="regular-16 mt-6 text-gray-30 xl:max-w-[520px]">
-          Nós queremos trazer a melhor experiência de acampamento na praia para
-          você trazendo satisfação ao observar a beleza da natureza. Nós podemos
-          ajudar você nessa aventura num só app.
+          Queremos estar em cada uma de suas viagens buscando a satisfação de
+          ver a beleza incorruptível da natureza. Podemos ajudá-lo em uma
+          aventura ao redor do mundo em apenas um app
         </p>
 
         <div className="my-11 flex flex-wrap gap-5">
@@ -63,16 +63,16 @@ const Hero = () => {
               <p className="regular-16 text-gray-20">Localidade</p>
               <Image src={"close.svg"} alt="close div" width={24} height={24} />
             </div>
-            <p className="bold-2 text-white">Japaratinga</p>
+            <p className="bold-2 text-white">Águas Calientes</p>
           </div>
           <div className="flexBetween">
             <div className="flex flex-col">
-              <p className="regular-16 block text-gray-20">Área</p>
-              <p className="bold-2 text-white">85,356km²</p>
+              <p className="regular-16 block text-gray-20">Distância</p>
+              <p className="bold-2 text-white">27,887km</p>
             </div>
             <div className="flex flex-col">
               <p className="regular-16 block text-gray-20">Elevação</p>
-              <p className="bold-2 text-white">Até 20 m</p>
+              <p className="bold-2 text-white">2.040 km</p>
             </div>
           </div>
         </div>
