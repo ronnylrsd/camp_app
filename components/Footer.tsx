@@ -64,7 +64,7 @@ const Footer = () => {
         </div>
 
         <div className="border bg-gray-20" />
-        <p className="regular-14 w-full text-center text-gray-30">2024 Hilink | Todos os direitos reservados</p>
+        <p className="regular-14 w-full text-center text-gray-30">2024 Hilink | Todos os direitos reservados Ronny Ribeiro</p>
       </div>
     </footer>
   );
