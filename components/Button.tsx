@@ -5,12 +5,13 @@ type ButtonProps = {
     title: string,
     icon?: string,
     variant: string
+    full?: boolean
 }
 
-const Button = ({type, title, icon, variant}: ButtonProps) => {
+const Button = ({type, title, icon, variant, full}: ButtonProps) => {
   return (
     <button
-        className={`flexCenter gap-3 ${variant} py-2 px-4 rounded-full border`}
+        className={`flexCenter gap-3 ${variant} py-2 px-4 rounded-full border ${full ? 'w-full' : ''}`}
         type={type}
     >
         {icon && <Image src={icon} alt="icon" width={24} height={24} className='cursor-pointer' />}
