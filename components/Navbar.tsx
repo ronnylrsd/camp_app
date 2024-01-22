@@ -3,13 +3,22 @@ import { NAV_LINKS } from "@/constants";
 import Image from "next/image";
 import Link from "next/link";
 import Button from "./Button";
-import { useState } from "react";
+import { useState, MouseEvent } from "react";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleCloseMenu = () => {
     setIsMenuOpen(false);
+  };
+
+  const handleLinkClick = (e: MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault(); // Impede o comportamento padrão do link
+    const section = document.querySelector(href) as HTMLElement;
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+      handleCloseMenu();
+    }
   };
 
   return (
@@ -35,7 +44,7 @@ const Navbar = () => {
                 href={link.href}
                 key={link.key}
                 className="regular-16 text-gray-50 flexCenter cursor-pointer pb-1.5 transition-all hover:font-bold"
-                onClick={handleCloseMenu}
+                onClick={(e) => handleLinkClick(e, link.href)}
               >
                 {link.label}
               </Link>
@@ -49,6 +58,7 @@ const Navbar = () => {
             href={link.href}
             key={link.key}
             className="regular-16 text-gray-50 flexCenter cursor-pointer pb-1.5 transition-all hover:font-bold"
+            onClick={(e) => handleLinkClick(e, link.href)}
           >
             {link.label}
           </Link>
