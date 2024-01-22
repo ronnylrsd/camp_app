@@ -13,7 +13,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="flexBetween max-container padding-container relative z-30 py-5">
+    <nav className="fixed top-0 left-0 right-0 flexBetween max-container padding-container z-30 py-5 bg-white">
       <Link href="/">
         <Image src="/hilink-logo.svg" alt="logo" width={74} height={29} />
       </Link>
@@ -43,6 +43,17 @@ const Navbar = () => {
           </ul>
         </div>
       </div>
+       <ul className={`h-full gap-12 lg:flex hidden sm:flex sm:flex-row sm:space-y-0 sm:space-x-4 sm:relative`}>
+        {NAV_LINKS.map((link) => (
+          <Link
+            href={link.href}
+            key={link.key}
+            className="regular-16 text-gray-50 flexCenter cursor-pointer pb-1.5 transition-all hover:font-bold"
+          >
+            {link.label}
+          </Link>
+        ))}
+      </ul>
       <div className="lg:flexCenter hidden">
         <Button
             type="button"
