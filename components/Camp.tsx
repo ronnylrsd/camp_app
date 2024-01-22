@@ -1,7 +1,7 @@
-"use client"
+"use client";
 import { PEOPLE_URL } from "@/constants";
 import Image from "next/image";
-import { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 interface CampSiteProps {
   backgroundImg: string;
@@ -56,6 +56,7 @@ const CampSite = ({
 };
 
 const Camp = () => {
+  const [loaded, setLoaded] = useState(false);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   const onWheel = (e: WheelEvent) => {
@@ -67,6 +68,7 @@ const Camp = () => {
   };
 
   useEffect(() => {
+    setLoaded(true);
     const scrollContainer = scrollContainerRef.current;
     if (scrollContainer) {
       scrollContainer.addEventListener("wheel", onWheel);
@@ -79,8 +81,16 @@ const Camp = () => {
   }, []);
 
   return (
-    <section id="camp" className="2xl:max-container relative flex flex-col py-10 lg:mb-10 lg:py-20 xl:mb-20">
-      <div ref={scrollContainerRef} className="hide-scrollbar flex h-[340px] w-full items-start justify-start gap-8 overflow-x-auto lg:h-[400px] xl:h-[640px]">
+    <section
+      id="camp"
+      className={`2xl:max-container relative flex flex-col py-10 lg:mb-10 lg:py-20 xl:mb-20 transition-opacity duration-1000 ${
+        loaded ? "opacity-100" : "opacity-0"
+      }`}
+    >
+      <div
+        ref={scrollContainerRef}
+        className="hide-scrollbar flex h-[340px] w-full items-start justify-start gap-8 overflow-x-auto lg:h-[400px] xl:h-[640px]"
+      >
         <CampSite
           backgroundImg="bg-bg-img-1"
           title="Acampamento Putuk Truno"
@@ -96,9 +106,15 @@ const Camp = () => {
       </div>
 
       <div className="flexEnd mt-10 px-6 lg:-mt-60 lg:mr-6">
-        <div className="bg-green-50 p-8 lg:max-w-[500px] xl:max-w-[734px] xl:rounded-5xl xl:px-16 xl:py-20 relative w-full overflow-hidden rounded-3xl">
-          <h2 className="regular-24 md:regular-32 2xl:regular-64 capitalize text-white"><strong>Sente-se perdido</strong> e não sabe o caminho?</h2>
-          <p className="regular-14 md:regular-16 mt-5 text-white">Por causa da ansiedade dos escaladores ao visitar um novo local de escalada, a possibilidade de se perderem é muito grande. É por isso que estamos aqui para aqueles que querem começar uma aventura</p>
+        <div className="bg-green-50 p-8 lg:max-w-[500px] xl:max-w-[734px] xl:rounded-5xl xl:px-16 xl:py-20 relative w-full overflow-hidden rounded-3xl animate-fadeSlideRight">
+          <h2 className="regular-24 md:regular-32 2xl:regular-64 capitalize text-white">
+            <strong>Sente-se perdido</strong> e não sabe o caminho?
+          </h2>
+          <p className="regular-14 md:regular-16 mt-5 text-white">
+            Por causa da ansiedade dos escaladores ao visitar um novo local de
+            escalada, a possibilidade de se perderem é muito grande. É por isso
+            que estamos aqui para aqueles que querem começar uma aventura
+          </p>
           <Image
             src="/quote.svg"
             alt="camp-2"

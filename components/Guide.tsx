@@ -1,18 +1,26 @@
+"use client";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 const Guide = () => {
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    setLoaded(true);
+  }, []);
+
   return (
-    <section id="guide" className="flexCenter flex-col">
-      <div className="padding-container max-container w-full pb-24">
+    <section id="guide" className={`flexCenter flex-col transition-opacity duration-1000 ${loaded ? 'opacity-100' : 'opacity-0'}`}>
+      <div className="padding-container max-container w-full pb-24 transition-all duration-700 delay-300">
         <Image src="/camp.svg" alt="camp" width={50} height={50} />
         <p className="uppercase regular-18 mb-3 text-green-50">
           Nós estamos aqui por você
         </p>
         <div className="flex flex-wrap justify-between gap-5 lg:gap-10">
-          <h2 className="bold-40 lg:bold-64 xl:max-w-[390px]">
+          <h2 className="bold-40 lg:bold-64 xl:max-w-[390px] animate-slideInLeft">
             Guiar Você para o Caminho Fácil
           </h2>
-          <p className="regular-16 text-gray-30 xl:max-w-[520px]">
+          <p className="regular-16 text-gray-30 xl:max-w-[520px] animate-slideInRight">
             Somente com o aplicativo hilink você não vai mais se perder, porque
             já oferecemos suporte a mapas offline quando não há conexão com a
             internet no campo. Convide seus amigos, parentes e amigos para se
