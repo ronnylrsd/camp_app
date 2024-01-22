@@ -15,7 +15,7 @@ const Hero = () => {
           height={50}
           className="absolute left-[-5px] top-[-30px] w-10 lg:w-[50px]"
         />
-        <h1 className="bold-52 lg:bold-88">área de acampamento Putuk Truno</h1>
+        <h1 className="bold-52 lg:bold-88">Acampamento em Putuk Truno</h1>
         <p className="regular-16 mt-6 text-gray-30 xl:max-w-[520px]">
           Queremos estar em cada uma de suas viagens buscando a satisfação de
           ver a beleza incorruptível da natureza. Podemos ajudá-lo em uma
